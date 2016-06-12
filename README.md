@@ -22,6 +22,8 @@ Already build images can be downloaded at http://firmware.freifunk-vogtland.net/
     # build
     git clone https://github.com/freifunk-gluon/gluon.git "${GLUONDIR}" -b v"${GLUON_VERSION}"
     git clone https://github.com/FreifunkVogtland/site-ffv.git "${GLUONDIR}"/site -b "${SITE_TAG}"
+    rm -rf "${GLUONDIR}"/patches/packages/routing
+    cp -r "${GLUONDIR}"/site/patches/packages/routing "${GLUONDIR}"/patches/packages/
     make -C "${GLUONDIR}" update
     make -C "${GLUONDIR}" GLUON_TARGET=ar71xx-generic clean -j"$(nproc || echo 1)"
     make -C "${GLUONDIR}" GLUON_TARGET=ar71xx-generic GLUON_BRANCH="${TARGET_BRANCH}" -j"$(nproc || echo 1)"
