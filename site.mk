@@ -35,8 +35,8 @@ GLUON_SITE_PACKAGES += \
     kmod-usb-core \
     kmod-usb2 \
     kmod-usb-hid \
-    via686a \
-    pata_via
+    kmod-via686a \
+    kmod-pata_via
 endif
 
 ifeq ($(GLUON_TARGET),x86-64)
